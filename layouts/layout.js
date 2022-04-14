@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import CheckAuthenticated from '../components/checkAuthenticated';
 import StyledLink from '../components/styledLink';
 
 const Layout = ({ children }) => (
@@ -10,12 +11,9 @@ const Layout = ({ children }) => (
 		</Head>
 		<header>
 			<nav className="flex gap-4 justify-center items-center h-20 w-full">
-				<StyledLink href="/">
-					<a>Home</a>
-				</StyledLink>
-				<StyledLink href="/users">
-					<a>Users</a>
-				</StyledLink>
+				<StyledLink href="/">Home</StyledLink>
+				<StyledLink href="/users">Users</StyledLink>
+				<CheckAuthenticated />
 			</nav>
 		</header>
 		<main className="my-auto">{children}</main>
