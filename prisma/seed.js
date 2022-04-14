@@ -20,9 +20,7 @@ const createUser = async () => {
 };
 
 async function main() {
-	for (let i = 0; i < NUMBER_OF_USERS; i++) {
-		await createUser();
-	}
+	await Promise.all([...Array(NUMBER_OF_USERS)].map(() => createUser()));
 }
 
 main()
