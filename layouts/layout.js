@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import StyledLink from '../components/styledLink';
 
 const Layout = ({ children }) => (
 	<div className="flex flex-col min-h-screen">
@@ -9,12 +10,12 @@ const Layout = ({ children }) => (
 		</Head>
 		<header>
 			<nav className="flex gap-4 justify-center items-center h-20 w-full">
-				<Link href="/">
+				<StyledLink href="/">
 					<a>Home</a>
-				</Link>
-				<Link href="/users">
+				</StyledLink>
+				<StyledLink href="/users">
 					<a>Users</a>
-				</Link>
+				</StyledLink>
 			</nav>
 		</header>
 		<main className="my-auto">{children}</main>
