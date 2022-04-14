@@ -1,14 +1,11 @@
-export const getServerSideProps = async () => {
-	const res = await fetch('http://localhost:3000/api/users');
-	const users = await res.json();
-	return {
-		props: {
-			users,
-		},
-	};
-};
+import useSwr from 'swr';
+import LoadingSpinner from '../components/loadingSpinner';
+import fetcher from '../utils/fetcher';
 
-const Users = ({ users }) => {
+const Users = () => {
+	const { data: users, error } = useSwr('/api/users', fetcher);
+	if (error) return <div>failed to load</div>;
+	if (!users) return <LoadingSpinner />;
 	return (
 		<>
 			<h1 className="text-3xl font-bold text-center">Users</h1>

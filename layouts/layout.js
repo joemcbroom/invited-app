@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
 				</Link>
 			</nav>
 		</header>
-		<main>{children}</main>
+		<main className="my-auto">{children}</main>
 		<footer className="mt-auto">This is the footer</footer>
 	</div>
 );
