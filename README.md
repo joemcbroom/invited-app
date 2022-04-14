@@ -22,6 +22,10 @@ Build the tables and seed with data
 ```
 npx prisma db push
 npx prisma db seed
+
+// or
+
+npm run seed-db
 ```
 
 Now run the development server:  
