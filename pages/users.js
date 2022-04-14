@@ -1,8 +1,17 @@
 import useSwr from 'swr';
 import LoadingSpinner from '../components/loadingSpinner';
 import fetcher from '../utils/fetcher';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Users = () => {
+	const router = useRouter();
+	useSession({
+		required: true,
+		onUnauthenticated() {
+			router.push('/sign-in');
+		},
+	});
 	const { data: users, error } = useSwr('/api/users', fetcher);
 	if (error) return <div>failed to load</div>;
 	if (!users) return <LoadingSpinner />;
